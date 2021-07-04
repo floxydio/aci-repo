@@ -1,12 +1,11 @@
 # Version
 <br>
 <br>
-Flutter 1.22.6
+<h3> Flutter 1.22.6 </h3>
 <br>
 <br>
-<br>
-<h3> Package : </h3>
-Font Awesome for Icon
-SharedPreferences for Save Data Login like Cookies
-Form Builder for Created Form
-http or dio for API
+<h1> Package : </h1>
+Font Awesome for Icon <br>
+SharedPreferences for Save Data Login like Cookies <br>
+Form Builder for Created Form <br>
+http or dio for API <br>

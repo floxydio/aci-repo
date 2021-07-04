@@ -5,6 +5,8 @@ import 'package:dio/dio.dart';
 import 'MainScreens.dart';
 import 'Register.dart';
 import 'package:flutter/gestures.dart';
+import 'dart:convert';
+import 'package:acidah/Models/Login_Model.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -14,22 +16,26 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String nama;
+
   final GlobalKey<FormBuilderState> _fbKey = GlobalKey<FormBuilderState>();
 
-  Future postLogin(String email, String password) async {
+  Future<LoginModels> postLogin(String email, String password) async {
     var dio = Dio();
 
-    dynamic data = {"email": email, "password": password};
+    Map<String, dynamic> data = {"email": email, "password": password};
 
     try {
-      final response = await dio.post("http://192.168.1.9/aci/api/login/",
+      final response = await dio.post("http://192.168.43.185/aci/api/login/",
           data: data,
           options: Options(headers: {'Content-type': 'application/json'}));
 
       print("Respon -> ${response.data} + ${response.statusCode}");
 
       if (response.statusCode == 200) {
-        return response.data;
+        final loginModel = LoginModels.fromJson(response.data);
+
+        return loginModel;
       }
     } catch (e) {
       print("Failed To Load $e");
@@ -126,12 +132,14 @@ class _LoginState extends State<Login> {
                                             if (value != null)
                                               {
                                                 setState(() {
+                                                  nama = value.data.nama;
                                                   Navigator.pushReplacement(
                                                       context,
                                                       new MaterialPageRoute(
                                                           builder: (BuildContext
                                                                   context) =>
-                                                              new MainScreens()));
+                                                              new MainScreens(
+                                                                  nama: nama)));
                                                 })
                                               }
                                             else if (value == null)

@@ -2,7 +2,7 @@
 <br>
 <br>
 <p><b> Flutter v1.22.6 </b></p> <br>
-<p> Download Flutter From Windows : <a href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_1.22.6-stable.zip">Click Here</a> </p>
+<p> Download Flutter For Windows : <a href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_1.22.6-stable.zip">Click Here</a> </p>
 <br>
 <br>
 <h1> Package : </h1>
